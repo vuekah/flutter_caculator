@@ -15,8 +15,8 @@ using this command when you want to add some assets (image, font,, etc.)
 ```
 ## Image Preview
 
-<img src="./screenshots/iphone.png"/>
+<img src="./screenshots/iphone.png" width="50%"/>
 
-<img src="./screenshots/chrome.png"/>
+<img src="./screenshots/chrome.png" width="50%"/>
 
 

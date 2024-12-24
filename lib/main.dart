@@ -19,11 +19,12 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return Consumer<ThemeProvider>(
-      builder: (context, themeProvider, child) => MaterialApp(
+    return Selector<ThemeProvider, bool>(
+      selector: (context, viewmodel) => viewmodel.isLightMode,
+      builder: (context, isLightMode, child) => MaterialApp(
         theme: MyAppTheme.lightTheme,
         darkTheme: MyAppTheme.darkTheme,
-        themeMode: themeProvider.isLightMode ? ThemeMode.light : ThemeMode.dark,
+        themeMode: isLightMode ? ThemeMode.light : ThemeMode.dark,
         home: const HomePage(),
       ),
     );

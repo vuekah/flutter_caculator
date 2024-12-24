@@ -9,60 +9,36 @@
 
 import 'package:flutter/widgets.dart';
 
+class $AssetsFontsGen {
+  const $AssetsFontsGen();
+
+  /// File path: assets/fonts/WorkSans-Regular.ttf
+  String get workSansRegular => 'assets/fonts/WorkSans-Regular.ttf';
+
+  /// File path: assets/fonts/WorkSans-SemiBold.ttf
+  String get workSansSemiBold => 'assets/fonts/WorkSans-SemiBold.ttf';
+
+  /// List of all assets
+  List<String> get values => [workSansRegular, workSansSemiBold];
+}
+
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
-  /// File path: assets/images/abs.png
-  AssetGenImage get abs => const AssetGenImage('assets/images/abs.png');
-
-  /// File path: assets/images/abs_black.png
-  AssetGenImage get absBlack =>
-      const AssetGenImage('assets/images/abs_black.png');
-
-  /// File path: assets/images/clear.png
-  AssetGenImage get clear => const AssetGenImage('assets/images/clear.png');
-
-  /// File path: assets/images/delete.png
-  AssetGenImage get delete => const AssetGenImage('assets/images/delete.png');
-
-  /// File path: assets/images/delete_black.png
-  AssetGenImage get deleteBlack =>
-      const AssetGenImage('assets/images/delete_black.png');
-
-  /// File path: assets/images/divide.png
-  AssetGenImage get divide => const AssetGenImage('assets/images/divide.png');
-
   /// File path: assets/images/moon.png
   AssetGenImage get moon => const AssetGenImage('assets/images/moon.png');
-
-  /// File path: assets/images/multiplication.png
-  AssetGenImage get multiplication =>
-      const AssetGenImage('assets/images/multiplication.png');
-
-  /// File path: assets/images/percent.png
-  AssetGenImage get percent => const AssetGenImage('assets/images/percent.png');
 
   /// File path: assets/images/sun.png
   AssetGenImage get sun => const AssetGenImage('assets/images/sun.png');
 
   /// List of all assets
-  List<AssetGenImage> get values => [
-        abs,
-        absBlack,
-        clear,
-        delete,
-        deleteBlack,
-        divide,
-        moon,
-        multiplication,
-        percent,
-        sun
-      ];
+  List<AssetGenImage> get values => [moon, sun];
 }
 
 class Assets {
   Assets._();
 
+  static const $AssetsFontsGen fonts = $AssetsFontsGen();
   static const $AssetsImagesGen images = $AssetsImagesGen();
 }
 
