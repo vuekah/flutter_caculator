@@ -50,13 +50,16 @@ class HomeViewmodel extends ChangeNotifier {
   }
 
   String calculate({bool isPercent = false}) {
-    if (_display.isEmpty) return '';
     try {
       if (isPercent) {
-        String input = result;
+        String input = result.isEmpty ? _textEditingController.text : result;
         _fixedIndex++;
-        int pressTimes = _fixedIndex * 2;
-        result = (double.parse(input) / 100).toStringAsFixed(pressTimes);
+        if (double.tryParse(input) != null) {
+          int pressTimes = _fixedIndex * 2;
+          result = (double.parse(input) / 100).toStringAsFixed(pressTimes);
+        } else {
+          print("aaaaa");
+        }
       } else {
         String input = _display;
         result = _calculator.evaluate(input).toStringAsFixed(2);
@@ -75,7 +78,6 @@ class HomeViewmodel extends ChangeNotifier {
 
   void calculateAndUpdateDisplay() {
     String input = _textEditingController.text;
-
     if (input.isNotEmpty) {
       _display = calculate(isPercent: true);
     } else if (_history.isNotEmpty) {
