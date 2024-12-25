@@ -4,10 +4,15 @@ import 'package:flutter_caculator/theme/my_app_theme.dart';
 import 'package:flutter_caculator/theme/theme_provider.dart';
 import 'package:provider/provider.dart';
 
-void main() => runApp(
-      ChangeNotifierProvider(
-          create: (context) => ThemeProvider(), child: const MyApp()),
-    );
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => ThemeProvider(),
+      child: const MyApp(),
+    ),
+  );
+}
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});

@@ -25,11 +25,13 @@ class _HomePageState extends State<HomePage> {
         appBar: AppBar(
           forceMaterialTransparency: true,
           centerTitle: true,
-          title: ToggleWidget(
-            initialValue: Provider.of<ThemeProvider>(context).isLightMode,
-            onChanged: (bool value) {
-              Provider.of<ThemeProvider>(context, listen: false).toggleTheme();
-            },
+          title: Consumer<ThemeProvider>(
+            builder: (context, themeProvider, child) => ToggleWidget(
+              initialValue: themeProvider.isLightMode,
+              onChanged: (bool value) {
+                themeProvider.toggleTheme();
+              },
+            ),
           ),
         ),
         body: isPortrait
@@ -48,6 +50,7 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            
             _buildTitle(context),
             _buildFirstRow(context),
             _buildButtonRow(context, [
@@ -117,9 +120,8 @@ class _HomePageState extends State<HomePage> {
                     ? Provider.of<HomeViewmodel>(context).result
                     : Provider.of<HomeViewmodel>(context).display,
                 textAlign: TextAlign.end,
-                style: const TextStyle(
-                    fontSize: 96,
-                    fontWeight: FontWeight.w300),
+                style:
+                    const TextStyle(fontSize: 96, fontWeight: FontWeight.w300),
               ),
             ),
           ),
